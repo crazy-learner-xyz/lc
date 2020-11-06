@@ -21,8 +21,8 @@ def longestSubarray(nums):\
 	return max_len \
 However, the longest subarray with only two types cannot use the same iteration like longest subarray with one type, since nums[i] can be either current_type[0] or current_type[1].\
 \
+Gave Hint: Two Pointer\
 总：\
-Two Pointer\
 l and r are equal to 0 and 1, respectively. While r hasn't reached len(nums), we judge whether or not the element at index r+1 is equal to one of the two current types. If yes, then r += 1, current array len += 1. If no, then r move to the right, l move to where r previously was, and then current array len = 2.\
 \
 Write algorithm\
