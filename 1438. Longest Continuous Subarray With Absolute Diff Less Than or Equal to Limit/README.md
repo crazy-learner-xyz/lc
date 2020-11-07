@@ -29,3 +29,5 @@ Can no longer use minval = min(array) every time anymore.\
 Given hint: min_dequeue where elements are monotonously increasing and max_dequeue where elements are monotonously decreasing.\
 But how do I know the index correspondence between a min_dequeue and a max_dequeue. I see. When you remove an element from the sliding window, you just pop it from the min_dequeue and from the max_dequeue. And dequeue is just a structure that you can insert from both the right and left, I guess I just didn’t dared to think. \
 Is binary search absolutely to find the place to insert it? \
+\
+Anyways, I'll leave it as it is, and then retry it using Cpp in the future.\
