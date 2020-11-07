@@ -1,6 +1,33 @@
+from collections import deque  
+
 class Solution(object):
+    def binaryInsertMinQueue(deq, number):
+        #find the largest element that is smaller than number
+        l, r = 0, len(deq)+1
+        while l < r:
+            m = (l+r) // 2
+            if deq[m] >= number:
+                r = m
+            else:
+                l = m+1
+        return l-1
+    
+    def binaryInsertMaxQueue(deq, number):
+        #find the smallest element that is larger than number
+        l, r = 0, len(deq)+1
+        while l < r:
+            m = (l+r) // 2
+            if deq[m] <= number:
+                r = m
+            else:
+                l = m+1
+        return l-1
+    
+    
     def longestSubarray(self, nums, limit):
     	l, r = 0, 0
+        minqueue = deque(nums[0])
+        maxqueue = deque(nums[0])
     	maxval = nums[0]
     	minval = nums[0]
     	max_len = 1
