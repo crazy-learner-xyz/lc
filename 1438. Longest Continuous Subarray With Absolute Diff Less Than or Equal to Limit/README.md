@@ -1,5 +1,6 @@
 Given hint:\
 Use a sliding window approach keeping the maximum and minimum value using a data structure like a multiset from STL in C++.\
+\
 Pre:\
 \
 总：\
@@ -12,6 +13,7 @@ When I move the left pointer, how do I know when will the subarray be valid agai
 P.S. I think Leetcode sliding window category is about the same as Leetcode two pointer category.\
 \
 Post:\
+\
 Test cases:\
 [8]\
 10\
