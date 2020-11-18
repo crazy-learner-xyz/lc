@@ -6,24 +6,20 @@ class Solution(object):
         :rtype: bool
         """
         stack = []
-        while pushed != [] or stack != []: #rethink about this termination condition.
-            print(stack)
-            if pushed[0] != popped[0]:
-                a = pushed.pop(0)
-                stack.append(a)
-                
-            else:
-                pushed.pop(0)
+        while pushed != []:
+            while stack != [] and stack[-1] == popped[0]:
+                stack.pop(-1)
                 popped.pop(0)
+            e = pushed.pop(0)
+            stack.append(e)
 
+        # pushed is now empty
         while popped != []:
             if stack[-1] != popped[0]:
                 return False
             else:
                 popped.pop(0)
                 stack.pop(-1)
-                
-        if popped != []:
-            return False
-        else:
-            return True
+        
+        # popped is now empty
+        return True
