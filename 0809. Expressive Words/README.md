@@ -21,3 +21,5 @@ If s is equal to the cur_char, there are two cases. One, if the s_freq is equal 
 Also, the previous algorithm disregarded the case when there are double "l" in word, When there is double "l" in S and double "l" in word, what to do?\
 \
 Is there a better way than writing out all the cases?\
+\
+Given hint: Some people didn't sum up S first and then do word, but instead used two-pointers and a check function from the start.\
