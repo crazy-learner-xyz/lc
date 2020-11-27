@@ -27,11 +27,12 @@ Given hint: Some people didn't sum up S first and then do word, but instead used
 总：\
 I'm trying to get the right logic of if-else conditions. And I test it by just putting that logic on the hello, heeellooo pair, and start from i,j=0,0, until i,j reaches the end, and for each iteration, check if the conditions I made up will make it work like supposed to. \
 \
+分：\
 for W in words, If S[j] == W[i] and S[j+1] != W[i], i+=1, j+=1; If S[j] == W[i] and S[j+1] != W[i], i=1, j+=1. This wouldn't work.\
 \
 If S[j] == W[i] and S[j+1] != W[i+1] and S[j+2] == S[j+1] == S[j], then move j to the furthest position of k such that S[k] == S[j]. If S[j] == W[i] and S[j+1] != W[i+1] and !(S[j+2] == S[j+1] == S[j]), then fail. If S[j] == W[i] and S[j+1] == W[i+1], then i+=1, j+=1.\
 \
-But what about the case where W = "heello", and S = "heeellooo"?
+But what about the case where W = "heello", and S = "heeellooo"?\
 \
 Try swapping the order of the S[j+2] == S[j+1] == S[j] condition and the S[j+1] == W[i+1] condition.\
 If S[j] == W[i] and S[j+2] ==S[j+1] == S[j], move j to the furthest next position, move i to the furthest next position, make sure that the number of times i moved is not bigger than the number of times j moved (else return False). Else if S[j] == W[i], j+=1, i+=1. Else, return False.\
