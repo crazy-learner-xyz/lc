@@ -23,3 +23,20 @@ Also, the previous algorithm disregarded the case when there are double "l" in w
 Is there a better way than writing out all the cases?\
 \
 Given hint: Some people didn't sum up S first and then do word, but instead used two-pointers and a check function from the start.\
+\
+总：\
+I'm trying to get the right logic of if-else conditions. And I test it by just putting that logic on the hello, heeellooo pair, and start from i,j=0,0, until i,j reaches the end, and for each iteration, check if the conditions I made up will make it work like supposed to. \
+\
+for W in words, If S[j] == W[i] and S[j+1] != W[i], i+=1, j+=1; If S[j] == W[i] and S[j+1] != W[i], i=1, j+=1. This wouldn't work.\
+\
+If S[j] == W[i] and S[j+1] != W[i+1] and S[j+2] == S[j+1] == S[j], then move j to the furthest position of k such that S[k] == S[j]. If S[j] == W[i] and S[j+1] != W[i+1] and !(S[j+2] == S[j+1] == S[j]), then fail. If S[j] == W[i] and S[j+1] == W[i+1], then i+=1, j+=1.\
+\
+But what about the case where W = "heello", and S = "heeellooo"?
+\
+Try swapping the order of the S[j+2] == S[j+1] == S[j] condition and the S[j+1] == W[i+1] condition.\
+If S[j] == W[i] and S[j+2] ==S[j+1] == S[j], move j to the furthest next position, move i to the furthest next position, make sure that the number of times i moved is not bigger than the number of times j moved (else return False). Else if S[j] == W[i], j+=1, i+=1. Else, return False.\
+i,j starts at 0,0 and stops at i<=len(W)-1 and j<=len(S)-1, and this is the while loop stopping condition.\
+After the while loop, if i != len(W)-1 or j != len(S)-1, return False. And if this last condition is also passed, return True.\
+\
+Test cases:\
+After test cases, realized the last condition after the while loop should be if i != len(W) or j != len(S), since i,j would have incremented to len(W) and len(S) to not pass the stopping condition of the while loop by the time they reach this last condition.
