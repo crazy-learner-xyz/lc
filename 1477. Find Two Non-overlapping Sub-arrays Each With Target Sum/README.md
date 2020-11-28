@@ -28,3 +28,9 @@ I need to test this "lst=[], for i in arr: if sum(lst)+i < target: lst.append(i)
 Test cases:\
 prefix[i] and suffix[i] shouldn't have overlap.
 TLE:\
+I guess instead of using sum() and len() functions all the time, I should just keep count for them and then use simple arithmetics.\
+No.\
+Given hint: Somebody in the Discussion section uses dict as the data structure.\
+Java Hashmap?\
+Ah, so when they get the sum, they don't add one element by another and delete one element by another like I did, but delete 1:i by 1:?. And 1:? can be determined by finding the value that has the key sum(arr[1:i])-target in the hashmap that stores all the key value pairs where key is the sum(arr[1:?]), and value is ?.\
+
