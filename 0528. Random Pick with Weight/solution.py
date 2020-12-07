@@ -1,23 +1,18 @@
-import random
+from numpy.random import choice
+
 class Solution(object):
 
     def __init__(self, w):
         """
         :type w: List[int]
-        """
-        self.lst= []
-        for i in range(len(w)):
-            self.lst += [i]*w[i]
-        
+        """        
+        s = sum(w)
+        self.w = [float(i)/s for i in w]
+        self.c = list(range(len(w)))
 
     def pickIndex(self):
         """
         :rtype: int
         """
-        return random.choice(self.lst)
-        
-
-
-# Your Solution object will be instantiated and called as such:
-# obj = Solution(w)
-# param_1 = obj.pickIndex()
+        return choice(self.c, 1,
+              p=self.w)[0]
