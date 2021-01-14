@@ -1,3 +1,4 @@
+
 class Solution(object):
     def numOfMinutes(self, n, headID, manager, informTime):
         """
@@ -7,18 +8,16 @@ class Solution(object):
         :type informTime: List[int]
         :rtype: int
         """
-        subordinate = {}
+        subordinate = collections.defaultdict(list)
         for i in range(len(manager)):
-            subordinate[manager[i]] = subordinate.get(manager[i],[]) + [i]
-        lst = [[headID,0]]
+            subordinate[manager[i]].append(i)
+        lst = [(headID,0)]
         glob_max = 0
         while lst != []:
-            cur_lst = lst.pop(0)
-            cur_ID = cur_lst[0]
-            cur_time = cur_lst[1]
+            cur_ID, cur_time = lst.pop(0)
             next_time = cur_time + informTime[cur_ID]
             glob_max = max(glob_max, next_time)
-            if cur_ID in subordinate.keys():
-                lst += [[i, next_time] for i in subordinate[cur_ID]]
+            for i in subordinate[cur_ID]:
+                lst.append((i, next_time))
                 
         return glob_max
