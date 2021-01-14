@@ -30,3 +30,6 @@ Refered to this hint:\
 使用level order思想，每一次将manager-employee这条权重带入下一个层级运算，然后每一次都更新一个较大的值赋予globalMax，代表了从root到这一个Leaf的权重和。最后返回globalMax的值。\
 \
 Somehow, there is still TLE. \
+Improvements to get ride of TLE:\
+1. Instead of list of list, used list of tuples, this way, when I pop a curNode, I don't have to assign t1 = curNode[0], t2 = curNode[1], but instead do t1, t2 = lsts.pop(0)
+2. Used defaultDict instead of regular dictionary. This saves the time of checking for keyError.
